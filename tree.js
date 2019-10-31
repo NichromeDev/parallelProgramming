@@ -170,38 +170,22 @@ create.onclick = e => {
   e.preventDefault;
   body.innerHTML = "";
   V = new Array();
-  // n = document.querySelector(".treeN").value;
-  // n = Number.parseInt(n);
-  n = 6;
+  n = document.querySelector(".treeN").value;
+  n = Number.parseInt(n);
   if (isNaN(n) || n < 3 || n > 20) {
     return alert("data is incorrect");
   }
-  // for (let i = 0; i < n; i++) {
-  //   for (let j = i + 1; j < n; j++) {
-  //     if (j === i + 1) {
-  //       V.push({ v: i, w: getRandomIntInclusive(1, 100), to: j });
-  //       continue;
-  //     }
-  //     if (Math.round((Math.random() * 4) / 5)) {
-  //       V.push({ v: i, w: getRandomIntInclusive(1, 100), to: j });
-  //     }
-  //   }
-  // }
-  V = [
-    { v: 0, w: 3, to: 3 },
-    { v: 3, w: 1, to: 5 },
-    { v: 0, w: 2, to: 5 },
-    { v: 1, w: 10, to: 5 },
-    { v: 1, w: 4, to: 4 },
-    { v: 1, w: 5, to: 2 },
-    { v: 2, w: 6, to: 4 }
-  ]
-  // V = [
-  //     {v: 0, w: 1, to: 1},
-  //     {v: 0, w: 2, to: 2},
-  //     {v: 1, w: 3, to: 2},
-  //     {v: 2, w: 10, to: 3},
-  // ]
+  for (let i = 0; i < n; i++) {
+    for (let j = i + 1; j < n; j++) {
+      if (j === i + 1) {
+        V.push({ v: i, w: getRandomIntInclusive(1, 100), to: j });
+        continue;
+      }
+      if (Math.round((Math.random() * 4) / 5)) {
+        V.push({ v: i, w: getRandomIntInclusive(1, 100), to: j });
+      }
+    }
+  }
   V.forEach(el => {
     let element = document.createElement("span");
     element.innerHTML =
